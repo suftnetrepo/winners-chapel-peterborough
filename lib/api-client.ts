@@ -9,9 +9,6 @@ export const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  config.headers = {
-    ...config.headers,
-    'nj-api-key': process.env.JERUR_NEXT_API_KEY ?? ''
-  };
+  config.headers.set('nj-api-key', process.env.JERUR_NEXT_API_KEY ?? '');
   return config;
 });

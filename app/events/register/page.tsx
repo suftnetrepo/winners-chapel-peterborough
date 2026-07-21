@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { Suspense, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { PageHeader } from '@/components/layout/page-header';
 import { CheckCircle2 } from 'lucide-react';
 
-export default function EventRegisterPage() {
+function EventRegisterForm() {
   const searchParams = useSearchParams();
   const eventId = searchParams.get('event') ?? '';
 
@@ -95,5 +95,13 @@ export default function EventRegisterPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function EventRegisterPage() {
+  return (
+    <Suspense>
+      <EventRegisterForm />
+    </Suspense>
   );
 }

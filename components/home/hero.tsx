@@ -48,7 +48,7 @@ export function Hero() {
   return (
     <header className="relative overflow-hidden text-white pt-[88px] px-8 pb-[90px]">
       <div className="absolute inset-0">
-        <Image src="/IMG_1035.png" alt="" fill priority className="object-cover" sizes="100vw" />
+        <Image src="/congregation.png" alt="" fill priority className="object-cover" sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-b from-indigo/88 via-indigo/82 to-indigo-deep/92" />
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-deep/70 via-indigo-deep/80 to-indigo-deep/90" />
       </div>
@@ -58,7 +58,6 @@ export function Hero() {
       />
       <div className="relative max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
         <div className="max-w-[560px]">
-          <div className="eyebrow text-gold mb-[22px]">Winners Chapel International — Peterborough</div>
           <h1 className="text-[38px] lg:text-[50px] leading-[1.08] text-white">
             Come as you are.
             <br />

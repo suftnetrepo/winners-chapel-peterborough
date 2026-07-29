@@ -25,11 +25,11 @@ export default async function PrayersPage() {
         description="Whatever you're facing, you're not alone. Let us stand with you in prayer."
       />
 
-      {/* <SwrProvider fallback={fallback}>
+      <SwrProvider fallback={fallback}>
         <PrayerTimesList />
-      </SwrProvider> */}
+      </SwrProvider>
 
-      <section className="px-8 py-[70px]">
+      <section className="px-8 ">
         <div className="text-center max-w-[560px] mx-auto mb-10">
           <h2 className="text-2xl mb-2">We&apos;re praying with you</h2>
           <p className="text-[15px] text-ink-soft">

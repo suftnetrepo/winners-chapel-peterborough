@@ -25,7 +25,7 @@ export function Navbar() {
 
   return (
     <nav className="bg-paper border-b border-ink/10 relative z-50">
-      <div className="max-w-[1160px] mx-auto flex items-center justify-between  py-5">
+      <div className="max-w-[1160px] mx-auto flex items-center justify-between  py-1">
         <Link href="/" className="flex items-center">
           <Image src="/logo.png" alt="Winners Chapel International" width={120} height={120} />
           <div className="font-display text-[19px] font-medium leading-tight">

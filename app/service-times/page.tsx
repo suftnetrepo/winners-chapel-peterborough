@@ -23,7 +23,7 @@ export default async function ServiceTimesPage() {
         title="Worship with us"
         description="Come and be refreshed in God's presence during our uplifting service times."
       />
-      <section className="px-8 py-16 text-center">
+      <section className="px-8 py-16">
         <SwrProvider fallback={fallback}>
           <ServiceTimesList />
         </SwrProvider>

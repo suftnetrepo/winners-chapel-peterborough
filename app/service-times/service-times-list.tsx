@@ -4,29 +4,49 @@ import { Clock, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRegularServices } from '@/hooks/use-regular-services';
 
+const tones = [
+  { bg: 'bg-[#DCE6EF]', text: 'text-[#3E5C74]' }, // steel blue
+  { bg: 'bg-[#EAD9DC]', text: 'text-[#7C3B45]' }, // wine
+  { bg: 'bg-[#E1E8D3]', text: 'text-[#55692F]' }, // olive
+  { bg: 'bg-gold-pale', text: 'text-gold-deep' } // gold
+];
+
 export function ServiceTimesList() {
   const { services } = useRegularServices();
 
+  if (services.length === 0) {
+    return <p className="text-ink-soft text-center">Service times are being updated — please check back shortly.</p>;
+  }
+
   return (
-    <div className="max-w-[640px] mx-auto flex flex-col gap-12">
-      {services.length === 0 && <p className="text-ink-soft">Service times are being updated — please check back shortly.</p>}
-      {services.map((service, i) => (
-        <div key={service._id ?? i}>
-          <h3 className="font-display text-2xl mb-2">{service.title}</h3>
-          <div className="flex justify-center items-center gap-2 text-ink-soft text-sm mb-1.5">
-            <Clock size={16} />
-            {service.start_time} – {service.end_time}
-          </div>
-          {!service.remote && (
-            <div className="flex justify-center items-center gap-2 text-ink-soft text-sm mb-3">
-              <MapPin size={16} />
-              Ormiston Bushfield Academy, Peterborough PE2 5RQ
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+      {services.map((service, i) => {
+        const tone = tones[i % tones.length];
+        return (
+          <div key={service._id ?? i} className="bg-paper border border-ink/10 rounded-md p-7 flex flex-col">
+            <div className={`w-11 h-11 rounded-full ${tone.bg} ${tone.text} flex items-center justify-center mb-5`}>
+              <Clock size={19} />
             </div>
-          )}
-          {service.description && <p className="text-[15px] text-ink-soft max-w-[480px] mx-auto mb-4">{service.description}</p>}
-          {service.remote && service.remote_link && <Button href={service.remote_link}>Join online</Button>}
-        </div>
-      ))}
+            <h3 className="font-display text-xl mb-3">{service.title}</h3>
+            <div className="flex items-center gap-2 text-ink-soft text-[13.5px] mb-2">
+              <Clock size={15} className="shrink-0" />
+              {service.start_time} – {service.end_time}
+            </div>
+            {!service.remote && (
+              <div className="flex items-start gap-2 text-ink-soft text-[13.5px] mb-3">
+                <MapPin size={15} className="shrink-0 mt-0.5" />
+                <span>Ormiston Bushfield Academy, Peterborough PE2 5RQ</span>
+              </div>
+            )}
+            {service.description && <p className="text-[14px] text-ink-soft mb-5">{service.description}</p>}
+            {service.remote && service.remote_link && (
+              <Button href={service.remote_link} className="mt-auto self-start">
+                Join online
+              </Button>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

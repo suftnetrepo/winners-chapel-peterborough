@@ -21,6 +21,10 @@ export type ChurchSettings = {
   name: string;
   mobile: string;
   email?: string;
+  currency?: string;
+  bank_name?: string;
+  sort_code?: string;
+  account_number?: string;
   address?: {
     addressLine1?: string;
     town?: string;

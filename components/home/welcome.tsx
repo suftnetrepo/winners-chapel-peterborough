@@ -16,7 +16,7 @@ export function Welcome() {
   return (
     <section className="px-8 pb-[100px]">
       <div className="max-w-[1160px] mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-[70px] items-center">
-        <div className="aspect-[4/5] rounded-md border border-ink/10 relative overflow-hidden bg-gradient-to-br from-sage-soft via-paper-alt to-gold-pale">
+        <div className="aspect-[4/5] rounded-md relative overflow-hidden bg-gradient-to-br from-sage-soft via-paper-alt to-gold-pale">
           {pastor?.secure_url ? (
             <Image src={pastor.secure_url} alt={attribution} fill sizes="(min-width: 1024px) 400px, 100vw" className="object-cover" />
           ) : (

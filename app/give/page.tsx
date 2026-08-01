@@ -1,31 +1,13 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
-import { CloudCog, Landmark, Mail } from 'lucide-react';
+import { BankTransferCard } from './bank-transfer-card';
+import { CloudCog, Mail } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Give',
   description: 'When you give your tithe and offering, you unlock kingdom blessings — prepare for divine provision.'
 };
-
-const methods = [
-  {
-    icon: CloudCog,
-    title: 'Give online',
-    description: "Via the Tithe.ly app or website. It's quick, easy, and secure.",
-    cta: { label: 'Give via Tithe.ly', href: '#' }
-  },
-  {
-    icon: Landmark,
-    title: 'Write a cheque',
-    description: 'Made payable to World Mission Agency – Winners Chapel International.'
-  },
-  {
-    icon: Mail,
-    title: 'Use a giving envelope',
-    description: "Available during any of our services — you'll find these at the back of the church."
-  }
-];
 
 export default function GivePage() {
   return (
@@ -43,20 +25,28 @@ export default function GivePage() {
             <h2 className="text-[30px]">Choose what works for you</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[26px]">
-            {methods.map((method) => (
-              <div key={method.title} className="bg-paper border border-ink/10 rounded-md p-8">
-                <div className="w-11 h-11 rounded-full bg-gold-pale text-gold-deep flex items-center justify-center mb-[22px]">
-                  <method.icon size={20} />
-                </div>
-                <h3 className="text-lg font-semibold font-sans mb-2.5">{method.title}</h3>
-                <p className="text-[14.5px] text-ink-soft">{method.description}</p>
-                {method.cta && (
-                  <a href={method.cta.href} className="inline-block mt-4 text-[13px] font-semibold text-gold-deep border-b border-gold">
-                    {method.cta.label} →
-                  </a>
-                )}
+            <div className="bg-paper border border-ink/10 rounded-md p-8">
+              <div className="w-11 h-11 rounded-full bg-gold-pale text-gold-deep flex items-center justify-center mb-[22px]">
+                <CloudCog size={20} />
               </div>
-            ))}
+              <h3 className="text-lg font-semibold font-sans mb-2.5">Give online</h3>
+              <p className="text-[14.5px] text-ink-soft">Via the Tithe.ly app or website. It's quick, easy, and secure.</p>
+              <a href="https://giving.winners-chapel.org.uk/" className="inline-block mt-4 text-[13px] font-semibold text-gold-deep border-b border-gold">
+                Give via Online →
+              </a>
+            </div>
+
+            <BankTransferCard />
+
+            <div className="bg-paper border border-ink/10 rounded-md p-8">
+              <div className="w-11 h-11 rounded-full bg-gold-pale text-gold-deep flex items-center justify-center mb-[22px]">
+                <Mail size={20} />
+              </div>
+              <h3 className="text-lg font-semibold font-sans mb-2.5">Use a giving envelope</h3>
+              <p className="text-[14.5px] text-ink-soft">
+                Available during any of our services — you'll find these at the back of the church.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -69,7 +59,6 @@ export default function GivePage() {
             Peterborough food bank.
           </blockquote>
           <div className="flex gap-3.5 justify-center">
-            <Button href="#">Give now</Button>
             <Button href="/food-bank" variant="outline-dark">
               See our food bank
             </Button>

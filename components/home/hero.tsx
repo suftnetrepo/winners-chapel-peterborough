@@ -11,7 +11,7 @@ export function Hero() {
   const { settings } = useSettings();
 
   const sliders = settings?.sliders ?? [];
-  const flyers = sliders.length > 0 ? sliders : FALLBACK_FLYERS;
+  const flyers = sliders.length > 0 ? sliders.filter((j) => j.status === true && j.imageOnly === true) : FALLBACK_FLYERS;
 
   const [idx, setIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);

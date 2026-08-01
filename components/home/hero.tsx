@@ -116,7 +116,7 @@ export function Hero() {
                   {current.message || 'Sunday Encounter'}
                 </span>
                 <span className="text-[12.5px] text-ink-soft font-semibold mt-auto pt-3.5 border-t border-ink/10">
-                  9:00 &amp; 11:00 · Main auditorium
+                  10:00 &amp; 12:00 · Main auditorium
                 </span>
               </div>
             )}

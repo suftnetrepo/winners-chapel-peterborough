@@ -15,6 +15,11 @@ export function EventsList() {
   const { events } = useEvents();
   const publishedEvents = events.filter((e) => e.status !== false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [imgErrors, setImgErrors] = useState<Set<string>>(new Set());
+
+  function handleImgError(id: string) {
+    setImgErrors((prev) => new Set(prev).add(id));
+  }
 
   function toggle(id: string) {
     setExpanded((prev) => {
@@ -41,7 +46,18 @@ export function EventsList() {
           <div key={id} className="bg-paper border border-ink/10 rounded-md overflow-hidden flex flex-col sm:flex-row">
             {event.secure_url && (
               <div className="relative w-full sm:w-[220px] h-[160px] sm:h-auto shrink-0">
-                <Image src={event.secure_url} alt={event.title} fill sizes="220px" className="object-cover" />
+                {imgErrors.has(id) ? (
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600" />
+                ) : (
+                  <Image
+                    src={event.secure_url}
+                    alt={event.title}
+                    fill
+                    sizes="220px"
+                    className="object-cover"
+                    onError={() => handleImgError(id)}
+                  />
+                )}
               </div>
             )}
             <div className="p-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 flex-1">

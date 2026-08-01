@@ -29,7 +29,7 @@ export default async function PrayersPage() {
         <PrayerTimesList />
       </SwrProvider>
 
-      <section className="px-8 ">
+      <section className={`px-8 ${prayerTimes?.data && prayerTimes.data.length > 0 ? 'py-8' : 'py-[70px]'}`}>
         <div className="text-center max-w-[560px] mx-auto mb-10">
           <h2 className="text-2xl mb-2">We&apos;re praying with you</h2>
           <p className="text-[15px] text-ink-soft">

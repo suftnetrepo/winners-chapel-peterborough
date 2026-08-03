@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { PageHeader } from '@/components/layout/page-header';
-import { SwrProvider } from '@/components/providers/swr-provider';
 import { ServiceTimesList } from './service-times-list';
-import { getRegularServices } from '@/lib/server-data';
 
 export const metadata: Metadata = {
   title: 'Service Times',
@@ -12,10 +10,8 @@ export const metadata: Metadata = {
 export const revalidate = 300;
 
 export default async function ServiceTimesPage() {
-  const services = await getRegularServices();
-  const fallback: Record<string, unknown> = {};
-  if (services) fallback['/api/regular-services'] = services;
-
+  // The layout provides fallback for regular-services via its SwrProvider,
+  // so we don't need a nested provider here. This eliminates cache context conflicts.
   return (
     <main>
       <PageHeader
@@ -24,9 +20,7 @@ export default async function ServiceTimesPage() {
         description="Come and be refreshed in God's presence during our uplifting service times."
       />
       <section className="px-8 py-16">
-        <SwrProvider fallback={fallback}>
-          <ServiceTimesList />
-        </SwrProvider>
+        <ServiceTimesList />
       </section>
     </main>
   );

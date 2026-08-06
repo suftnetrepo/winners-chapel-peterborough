@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHeader } from "@/components/layout/page-header";
 import { TeamGrid } from "./team-grid";
+import { MandateAccordion } from "./mandate-accordion";
 
 export const metadata: Metadata = {
   title: "About",
@@ -62,7 +63,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-paper-alt px-8 py-20">
+       <section className="bg-paper-alt py-20">
+        <div className="max-w-[1160px] mx-auto">
+         <MandateAccordion />
+        </div>
+      </section>
+
+    
+      <section className=" px-8 py-20">
         <div className="max-w-[1160px] mx-auto">
           <div className="text-center max-w-[560px] mx-auto mb-14">
             <div className="eyebrow text-gold-deep mb-3.5">Leadership</div>

@@ -109,14 +109,14 @@ export function BankTransferCard() {
                 <Landmark size={22} />
               </div>
               <h3 className="font-display text-2xl text-white mb-1.5">Bank transfer</h3>
-              <p className="text-[13.5px] text-[#C7CBDA] mb-2">Use the details below to give directly from your bank.</p>
+              <p className="text-[13.5px] text-[#C7CBDA] mb-2">Available during any of our services.</p>
 
               <div className="mt-4">
-                <Field label="Bank name" value={bankName} />
+                {/* <Field label="Bank name" value={bankName} />
                 <Field label="Account name" value={accountName} />
                 <Field label="Sort code" value={formatSortCode(sortCode)} copyValue={sortCode} />
                 <Field label="Account number" value={formatAccountNumber(accountNumber)} copyValue={accountNumber} />
-                <Field label="Reference" value={REFERENCE} copyValue={REFERENCE} />
+                <Field label="Reference" value={REFERENCE} copyValue={REFERENCE} /> */}
               </div>
             </div>
           </div>

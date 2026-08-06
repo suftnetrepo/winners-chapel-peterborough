@@ -88,7 +88,7 @@ export function Hero() {
               <Maximize2 size={13} />
             </span>
 
-            {current.secure_url ? (
+            {current?.secure_url ? (
               <>
                 <Image
                   src={current.secure_url}

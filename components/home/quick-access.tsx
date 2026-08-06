@@ -22,10 +22,10 @@ const items = [
   },
   {
     icon: HandHeart,
-    title: 'Prayer requests',
-    description: "Share what's on your heart — our prayer team stands with you.",
+    title: 'Prayer times',
+    description: "Join us in prayer throughout the week — see the full schedule.",
     href: '/prayers',
-    cta: 'Request prayer',
+    cta: 'Prayer Times',
     iconBg: 'bg-indigo/10',
     iconColor: 'text-indigo'
   },
